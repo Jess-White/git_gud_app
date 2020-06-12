@@ -1,5 +1,11 @@
 class Api::ReviewsController < ApplicationController
 
+  def index
+    @reviews = Review.all
+    @reviews = @reviews.order(id: :asc)
+    render "index.json.jb"
+  end
+
   def create
     review = Review.new(
       title: params[:title],

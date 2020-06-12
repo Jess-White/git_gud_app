@@ -1,6 +1,8 @@
 class Resource < ApplicationRecord
   has_many :taggings
   has_many :tags, through: :taggings
+  has_many :reviews
+  belongs_to :user
 
   enum type: [:cheat_sheet, :tutorial, :deep_dive, :channel]
 

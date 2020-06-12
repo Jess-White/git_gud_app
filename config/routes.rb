@@ -6,18 +6,27 @@ Rails.application.routes.draw do
   namespace :api do
     get "/users" => "users#index"
     post "/users" => "users#create"
-    get "/users" => "users#show"
-    patch "/users" => "users#update"
-    delete "/users" => "users#delete"
+    get "/users/:id" => "users#show"
+    patch "/users/:id" => "users#update"
+    delete "/users/:id" => "users#delete"
     post "/sessions" => "sessions#create"
 
+    get "/reviews" => "reviews#index"
     post "/reviews" => "reviews#create"
-    get "/reviews" => "reviews#show"
-    patch "/reviews" => "reviews#update"
-    delete "/reviews" => "reviews#delete"
+    get "/reviews/:id" => "reviews#show"
+    patch "/reviews/:id" => "reviews#update"
+    delete "/reviews/:id" => "reviews#delete"
+
+    get "/resources" => "resources#index"
+    post "/resources" => "resources#create"
+    get "/resources/:id" => "resources#show"
+    patch "/resources/:id" => "resources#update"
+    delete "/resources/:id" => "resources#delete"
+    post "/sessions" => "sessions#create"
 
   end
 
-    # resources :resources
-    # root 'resources#index'
+    resources :resources
+    root 'resources#index'
 end
+
