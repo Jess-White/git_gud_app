@@ -1,17 +1,15 @@
-render partial: "user.json.jb", locals: {user: @user}
+user_hash = render partial: "user.json.jb", locals: {user: @user}
 
-# user_hash = render partial: "user.json.jb", locals: {user: @user}
+user_hash[:reviews] = @user.reviews.map do |review| 
+  json = render partial: "/api/reviews/review.json.jb", locals: {review: review}
+end 
 
-# user_hash[:reviews] = @user.reviews.map do |review| 
-#   json = render partial: "/api/reviews/review.json.jb", locals: {review: review}
-# end 
+user_hash[:review] = @user.reviews.map do |review|
+  json = {
+          title: review.title,
+          body: review.body,
+          rating: review.rating
+          }
+  end 
 
-# user_hash[:review] = @user.reviews.map do |review|
-#   json = {
-#           title: review.title,
-#           body: review.body,
-#           rating: review.rating
-#           }
-#   end 
-
-# user_hash
+user_hash
