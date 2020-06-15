@@ -12,7 +12,7 @@ Resource.create(url:"monkey_bread.com", name:"Monkey Bread Tutorials", resource_
 Resource.create(url:"scone_and_jam.com", name:"Scone and Jam Tutorials", resource_type: :tutorial, format: :video, difficulty: :basic, cost: 4, user_id: 1)
 Resource.create(url:"french_toast.com", name:"French Tutorials", resource_type: :tutorial, format: :text, difficulty: :advanced, cost: 2, user_id: 1)
 
-User.create(first_name: "Mike", last_name: "McFaddin", email: "mikemcfaddin@gmail.com", user_name: "Magic Mike", password: "password", password_confirmation: "password")
+User.create(first_name: "Mike", last_name: "McFaddin", email: "mikemcfaddin@gmail.com", user_name: "Magic Mike", password_digest: "password")
 User.create(first_name: "Sara", last_name: "Lawrence", email: "slawrence@gmail.com", user_name: "Sarabee", password: "password", password_confirmation: "password")
 User.create(first_name: "Derek", last_name: "Derrickson", email: "derekd@gmail.com", user_name: "Derek!!!", password: "password", password_confirmation: "password")
 User.create(first_name: "Gayle", last_name: "Cooper", email: "GCoop@gmail.com", user_name: "cgeye", password: "password", password_confirmation: "password")
