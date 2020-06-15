@@ -33,10 +33,15 @@ class Api::UsersController < ApplicationController
     @user.last_name = params[:last_name] || @user.last_name
     @user.email = params[:email] || @user.email
     @user.user_name = params[:user_name] || @user.user_name
-    @user.password = params[:password] || @user.password
-    @user.password_confirmation = params[:password_confirmation] || @user.password_confirmation
-    @user.save 
-    render "update.json.jb"
+    if params[:password]
+      @user.password = params[:password]
+      @user.password_confirmation = params[:password_confirmation]
+    end
+    if @user.save 
+      render "show.json.jb"
+    else
+      render json: {errors: @user.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def destroy
