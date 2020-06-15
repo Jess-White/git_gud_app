@@ -7,16 +7,17 @@ class Api::ReviewsController < ApplicationController
   end
 
   def create
-    review = Review.new(
+    @review = Review.new(
       title: params[:title],
       body: params[:body],
       rating: params[:rating],
-      user_id: params[:user_id]
+      user_id: params[:user_id],
+      resource_id: params[:resource_id]
       )
-    if review.save
+    if @review.save
       render json: {message: "Review created successfully!"}, status: :created
     else
-      render json: {errors: review.errors.full_messages}, status: :bad_request
+      render json: {errors: @review.errors.full_messages}, status: :bad_request
     end
   end
 
@@ -30,9 +31,11 @@ class Api::ReviewsController < ApplicationController
     @review.title = params[:title] || @review.title
     @review.body = params[:body] || @review.body
     @review.rating = params[:rating] || @review.rating
-    @review.user_id = params[:user_id] || @review.user_id
-    @review.save 
-    render "update.json.jb"
+    if @review.save 
+      render "show.json.jb"
+    else
+      render json: {errors: @review.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def destroy
