@@ -4,7 +4,7 @@ class Resource < ApplicationRecord
   has_many :reviews
   belongs_to :user
 
-  enum type: [:cheat_sheet, :tutorial, :deep_dive, :channel]
+  enum resource_type: [:cheat_sheet, :tutorial, :deep_dive, :channel]
 
   enum format: [:video, :text]
 
