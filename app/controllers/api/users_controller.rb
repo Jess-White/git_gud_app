@@ -1,5 +1,4 @@
 class Api::UsersController < ApplicationController
-
   def index
     @users = User.all
     @users = @users.order(id: :asc)
@@ -7,18 +6,18 @@ class Api::UsersController < ApplicationController
   end
 
   def create
-    user = User.new(
+    @user = User.new(
       first_name: params[:first_name],
       last_name: params[:last_name],
       email: params[:email],
       user_name: params[:user_name],
       password: params[:password],
-      password_confirmation: params[:password_confirmation]
+      password_confirmation: params[:password_confirmation],
     )
-    if user.save
-      render json: {message: "User created successfully!"}, status: :created
+    if @user.save
+      render json: { message: "User created successfully!" }, status: :created
     else
-      render json: {errors: user.errors.full_messages}, status: :bad_request
+      render json: { errors: @user.errors.full_messages }, status: :bad_request
     end
   end
 
@@ -37,17 +36,16 @@ class Api::UsersController < ApplicationController
       @user.password = params[:password]
       @user.password_confirmation = params[:password_confirmation]
     end
-    if @user.save 
+    if @user.save
       render "show.json.jb"
     else
-      render json: {errors: @user.errors.full_messages}, status: :unprocessable_entity
+      render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   def destroy
     user = User.find(params[:id])
     user.destroy
-    render json: {message: "User successfully destroyed!"}
+    render json: { message: "User successfully destroyed!" }
   end
-
 end
