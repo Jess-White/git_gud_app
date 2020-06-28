@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
     post "/sessions" => "sessions#create"
 
+    get "/logged_in" => "sessions#logged_in"
+
     get "/resources" => "resources#index"
     post "/resources" => "resources#create"
     get "/resources/:id" => "resources#show"
