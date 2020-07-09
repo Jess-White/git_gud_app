@@ -1,4 +1,5 @@
 class Api::ReviewsController < ApplicationController
+  before_action :authenticate_user, except: [:index]
 
   def index
     @reviews = Review.all
@@ -12,12 +13,12 @@ class Api::ReviewsController < ApplicationController
       body: params[:body],
       rating: params[:rating],
       user_id: params[:user_id],
-      resource_id: params[:resource_id]
-      )
+      resource_id: params[:resource_id],
+    )
     if @review.save
-      render json: {message: "Review created successfully!"}, status: :created
+      render json: { message: "Review created successfully!" }, status: :created
     else
-      render json: {errors: @review.errors.full_messages}, status: :bad_request
+      render json: { errors: @review.errors.full_messages }, status: :bad_request
     end
   end
 
@@ -31,17 +32,16 @@ class Api::ReviewsController < ApplicationController
     @review.title = params[:title] || @review.title
     @review.body = params[:body] || @review.body
     @review.rating = params[:rating] || @review.rating
-    if @review.save 
+    if @review.save
       render "show.json.jb"
     else
-      render json: {errors: @review.errors.full_messages}, status: :unprocessable_entity
+      render json: { errors: @review.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   def destroy
     review = Review.find(params[:id])
     review.destroy
-    render json: {message: "Review successfully destroyed!"}
+    render json: { message: "Review successfully destroyed!" }
   end
-
 end

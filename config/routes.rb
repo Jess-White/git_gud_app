@@ -31,6 +31,12 @@ Rails.application.routes.draw do
     post "/tags" => "tags#create"
     get "/tags/:id" => "tags#show"
 
+    get "/favorites" => "favorites#index"
+    post "/favorites" => "favorites#create"
+    get "/favorites/:id" => "favorites#show"
+    delete "/favorites/:id" => "favorites#destroy"
+
+    # from tutorial
     # resources :resources
     # root 'resources#index'
 

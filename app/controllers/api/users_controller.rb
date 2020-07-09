@@ -1,4 +1,6 @@
 class Api::UsersController < ApplicationController
+  before_action :authenticate_user, except: [:create, :index]
+
   def index
     @users = User.all
     @users = @users.order(id: :asc)
@@ -23,6 +25,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # @user = current_user
     render "show.json.jb"
   end
 
