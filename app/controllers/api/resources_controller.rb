@@ -1,11 +1,11 @@
 class Api::ResourcesController < ApplicationController
-  before_action :authenticate_user, except: [:index]
+  before_action :authenticate_user
 
   def index
     @resources = Resource.all
     @resources = @resources.order(id: :asc)
     render "index.json.jb"
-    #this is from the tutorial
+    # this is from the tutorial
     # params[:tag] ? @resources = Resource.tagged_with(params[:tag]) : @resources = Resource.all
   end
 
