@@ -1,22 +1,32 @@
 class Api::ResourcesController < ApplicationController
+  before_action :authenticate_user
 
   def index
     @resources = Resource.all
     @resources = @resources.order(id: :asc)
     render "index.json.jb"
-
-    params[:tag] ? @resources = Resource.tagged_with(params[:tag]) : @resources = Resource.all
+    # this is from the tutorial
+    # params[:tag] ? @resources = Resource.tagged_with(params[:tag]) : @resources = Resource.all
   end
+
+  #this is from the tutorial
+  # def new
+  #   @resource = Resource.new
+  # end
 
   def create
     @resource = Resource.new(resource_params)
     if @resource.save
-      redirect_to @resource
+      # redirect_to @resource
+      render "show.json.jb"
     else
-      render :new
+      # render :new
+      render json: { errors: @resource.errors.full_messages }, status: :unprocessable_entity
     end
   end
- 
+
+  #
+
   def show
     @resource = Resource.find(params[:id])
     render "show.json.jb"
@@ -33,35 +43,21 @@ class Api::ResourcesController < ApplicationController
     if @resource.save
       render "show.json.jb"
     else
-      render json: {errors: @resource.errors.full_messages}, status: :unprocessable_entity
-    end 
-  end 
+      render json: { errors: @resource.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
 
   def destroy
     @resource = Resource.find(params[:id])
     @resource.destroy
-    render json: {message: "Resource successfully destroyed"}
-  end 
+    render json: { message: "Resource successfully destroyed" }
+  end
 
   private
 
   def resource_params
-      params.require(:resource).permit(:url, :name, :type, :format, :difficulty, :cost, :user_id, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
+    # Original from tutorial
+    # params.require(:resource).permit(:url, :name, :resource_type, :format, :difficulty, :cost, :user_id, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
+    params.permit(:url, :name, :resource_type, :format, :difficulty, :cost, :user_id, :tag_list)
   end
-
 end
-
-#this is from the tutorial - we will probably have to reconcile it
-
-# def new
-#   @resource = Resource.new
-# end
-
-# def create
-#   @resource = Resource.new(resource_params)
-#   if @resource.save
-#     redirect_to @resource
-#   else
-#     render :new
-#   end
-# end
