@@ -1,17 +1,13 @@
-render partial: "resource.json.jb", locals: { resource: @resource }
-# resource_hash =
-#   resource_hash[:reviews] = @resource.reviews.map do |review|
-#     json = {
-#             title: review.title,
-#             body: review.body,
-#             rating: review.rating
-#             }
-#     end
+resource_hash = render partial: "resource.json.jb", locals: { resource: @resource }
+  
+resource_hash[:reviews] = @resource.reviews.map do |review| 
+  render partial: "api/reviews/review.json.jb", 
+  locals: {review: review}
+end 
 
 #   resource_hash[:tags] = @resource.taggings.map do |thing|
 #     tags = {
 #             tag: thing.tag_id.name
 #             }
-#     end
 
-# resource_hash
+resource_hash
