@@ -7,16 +7,20 @@ class Api::FavoritesController < ApplicationController
   end
 
   def create
-    @favorite = Favorite.new(
-      user_id: current_user.id,
-      # user_id: params[:user_id],
-      resource_id: params[:resource_id],
-    )
-    if @favorite.save
-      render "show.json.jb"
-    else
-      render json: { errors: @favorite.errors.full_message }, status: :unprocessable_entity
-    end
+    if !Favorite.where(:user_id=>params[:user_id]).where(:resource_id=>params[:resource_id]).first
+      @favorite = Favorite.new(
+        user_id: current_user.id,
+        # user_id: params[:user_id],
+        resource_id: params[:resource_id],
+      )
+      if @favorite.save
+        render "show.json.jb"
+      else
+        render json: { errors: @favorite.errors.full_message }, status: :unprocessable_entity
+      end
+    else 
+      render json: { message: "This is already a favorite!"}
+    end 
   end
 
   def show
@@ -25,7 +29,7 @@ class Api::FavoritesController < ApplicationController
   end
 
   def destroy
-    @favorite = Favorite.find(params[:id])
+    @favorite = Favorite.where(:user_id=>params[:user_id]).where(:resource_id=>params[:resource_id]).first
     @favorite.destroy
     render json: { message: "Favorite successfully removed." }
   end
