@@ -1,7 +1,10 @@
-review = render partial: "review.json.jb", locals: {review: @review}
+review_hash = render partial: "review.json.jb", locals: { review: @review }
 
-review[:resource] = render partial: "api/resources/resource.json.jb", locals: {resource: @review.resource}
-
+# if @review.user.nil? == false
+#   review_hash[:user] = render partial: "api/users/user.json.jb", locals: { user: @review.user }
+# else
+#   review_hash[:user] = "User deactivated"
+# end
 review[:user] = render partial: "api/users/user.json.jb", locals: {user: @review.user}
 
-review 
+review_hash

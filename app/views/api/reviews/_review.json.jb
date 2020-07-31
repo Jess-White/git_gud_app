@@ -6,5 +6,5 @@
   user_id: review.user_id,
   resource_id: review.resource_id,
   created_at: review.created_at,
-  updated_at: review.updated_at
+  updated_at: review.updated_at,
 }
