@@ -1,9 +1,19 @@
 resource_hash = render partial: "resource.json.jb", locals: { resource: @resource }
-  
-resource_hash[:reviews] = @resource.reviews.map do |review| 
-  render partial: "api/reviews/review.json.jb", 
-  locals: {review: review}
-end 
+
+# resource_hash[:reviews] = @resource.reviews.map do |review|
+#   render partial: "api/reviews/review.json.jb",
+#   locals: {review: review}
+# end
+
+resource_hash[:reviews] = @resource.reviews
+
+if current_user
+  resource_hash[:favorite] = current_user.favorite_resources.include?(@resource)
+end
+
+resource_hash[:tags] = @resource.taggings.map do |tagging|
+  tagging.tag.name
+end
 
 #   resource_hash[:tags] = @resource.taggings.map do |thing|
 #     tags = {

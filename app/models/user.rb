@@ -4,5 +4,6 @@ class User < ApplicationRecord
 
   has_many :resources
   has_many :reviews
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_resources, through: :favorites, source: :resource
 end

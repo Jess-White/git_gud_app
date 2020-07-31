@@ -1,3 +1,9 @@
 @resources.map do |resource|
-  render partial: "resource.json.jb", locals: {resource: resource}
+  resources_info = render partial: "resource.json.jb", locals: { resource: resource }
+
+  resources_info[:tags] = resource.taggings.map do |tag|
+    tag.tag.name
+  end
+
+  resources_info
 end
