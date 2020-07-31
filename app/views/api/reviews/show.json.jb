@@ -2,6 +2,6 @@ review = render partial: "review.json.jb", locals: {review: @review}
 
 review[:resource] = render partial: "api/resources/resource.json.jb", locals: {resource: @review.resource}
 
-review[:user_name] = render partial: "api/users/user.json.jb", locals: {user_name: @review.user_name}
+review[:user] = render partial: "api/users/user.json.jb", locals: {user: @review.user}
 
 review 

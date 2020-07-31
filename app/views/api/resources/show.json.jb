@@ -5,6 +5,8 @@ resource_hash[:reviews] = @resource.reviews.map do |review|
   locals: {review: review}
 end 
 
+resource_hash[:user] = render partial: "api/users/user.json.jb", locals: {user: @resource.user}
+
 #   resource_hash[:tags] = @resource.taggings.map do |thing|
 #     tags = {
 #             tag: thing.tag_id.name
