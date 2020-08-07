@@ -5,7 +5,12 @@ resource_hash = render partial: "resource.json.jb", locals: { resource: @resourc
 #   locals: {review: review}
 # end
 
-resource_hash[:reviews] = @resource.reviews
+resource_hash[:reviews] = []
+
+@resource.reviews.each do |review|
+  this_review = review
+  resource_hash[:reviews] << this_review
+end
 
 if current_user
   resource_hash[:favorite] = current_user.favorite_resources.include?(@resource)
@@ -15,7 +20,7 @@ resource_hash[:tags] = @resource.taggings.map do |tagging|
   tagging.tag.name
 end
 
-resource_hash[:user] = render partial: "api/users/user.json.jb", locals: {user: @resource.user}
+resource_hash[:user] = render partial: "api/users/user.json.jb", locals: { user: @resource.user }
 
 #   resource_hash[:tags] = @resource.taggings.map do |thing|
 #     tags = {
