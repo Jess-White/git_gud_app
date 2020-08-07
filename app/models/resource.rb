@@ -5,6 +5,8 @@ class Resource < ApplicationRecord
   has_many :favorites
   belongs_to :user
 
+  validates :url, :name, :resource_type, :format, :difficulty, :cost, presence: true
+
   enum resource_type: [:cheat_sheet, :tutorial, :deep_dive, :channel]
 
   enum format: [:video, :text]

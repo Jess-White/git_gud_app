@@ -3,7 +3,7 @@ class Api::ReviewsController < ApplicationController
 
   def index
     @reviews = Review.all
-    @reviews = @reviews.order(id: :asc)
+    @reviews = @reviews.order(id: :desc)
     render "index.json.jb"
   end
 
