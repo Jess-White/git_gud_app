@@ -3,7 +3,7 @@ class Api::ResourcesController < ApplicationController
 
   def index
     @resources = Resource.all
-    @resources = @resources.order(id: :asc)
+    @resources = @resources.order(id: :desc)
     render "index.json.jb"
     # this is from the tutorial
     # params[:tag] ? @resources = Resource.tagged_with(params[:tag]) : @resources = Resource.all
