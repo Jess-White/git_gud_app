@@ -6,70 +6,98 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Resource.create(url:"waffle.com", name:"Waffle Tutorials", resource_type: :tutorial, format: :text, difficulty: :advanced, cost: 2, user_id: 1)
-# Resource.create(url:"cinnabon.com", name:"Cinnabon Tutorials", resource_type: :tutorial, format: :video, difficulty: :basic, cost: 3, user_id: 1)
-# Resource.create(url:"monkey_bread.com", name:"Monkey Bread Tutorials", resource_type: :tutorial, format: :video, difficulty: :advanced, cost: 1, user_id: 1)
-# Resource.create(url:"scone_and_jam.com", name:"Scone and Jam Tutorials", resource_type: :tutorial, format: :video, difficulty: :basic, cost: 4, user_id: 1)
-# Resource.create(url:"french_toast.com", name:"French Tutorials", resource_type: :tutorial, format: :text, difficulty: :advanced, cost: 2, user_id: 1)
+User.create(first_name: "Mike", last_name: "McFaddin", email: "mikemcfaddin@gmail.com", user_name: "Magic Mike", password: "password", password_confirmation: "password")
+User.create(first_name: "Jess", last_name: "White", email: "jesswhite@gmail.com", user_name: "jesswhite", password: "password", password_confirmation: "password")
+User.create(first_name: "Derek", last_name: "Derrickson", email: "derekd@gmail.com", user_name: "Derek!!!", password: "password", password_confirmation: "password")
+User.create(first_name: "Gayle", last_name: "Cooper", email: "GCoop@gmail.com", user_name: "cgeye", password: "password", password_confirmation: "password")
+User.create(first_name: "Robert", last_name: "Richardson", email: "rrichards@gmail.com", user_name: "Robbie Boy", password: "password", password_confirmation: "password")
 
-# User.create(first_name: "Mike", last_name: "McFaddin", email: "mikemcfaddin@gmail.com", user_name: "Magic Mike", password_digest: "password")
-# User.create(first_name: "Sara", last_name: "Lawrence", email: "slawrence@gmail.com", user_name: "Sarabee", password: "password", password_confirmation: "password")
-# User.create(first_name: "Derek", last_name: "Derrickson", email: "derekd@gmail.com", user_name: "Derek!!!", password: "password", password_confirmation: "password")
-# User.create(first_name: "Gayle", last_name: "Cooper", email: "GCoop@gmail.com", user_name: "cgeye", password: "password", password_confirmation: "password")
-# User.create(first_name: "Robert", last_name: "Richardson", email: "rrichards@gmail.com", user_name: "Robbie Boy", password: "password", password_confirmation: "password")
+Resource.create(url: "https://scrimba.com/course/glearnreact", name: "Learn React for free", resource_type: :tutorial, format: :video, difficulty: :intermediate, cost: 0, user_id: 1, author: "Bob Ziroll")
+Resource.create(url: "https://www.youtube.com/watch?v=pKd0Rpw7O48", name: "How to build a REST API with Node js & Express", resource_type: :channel, format: :video, difficulty: :intermediate, cost: 0, user_id: 2, author: "Mosh Hamedani")
+Resource.create(url: "https://blog.logrocket.com/setting-up-a-restful-api-with-node-js-and-postgresql-d96d6fc892d8/", name: "Setting up a RESTful API with Node.js and PostgreSQL", resource_type: :tutorial, format: :text, difficulty: :intermediate, cost: 0, user_id: 3, author: "Tani Rascia")
+Resource.create(url: "https://sqlbolt.com/", name: "Introduction to SQL", resource_type: :tutorial, format: :text, difficulty: :beginner, cost: 0, user_id: 1, author: "SQLBolt")
+Resource.create(url: "https://egghead.io/courses/start-learning-react", name: "Start Learning React", resource_type: :tutorial, format: :video, difficulty: :intermediate, cost: 0, user_id: 2, author: "Joe Maddalone")
+Resource.create(url: "https://javascript30.com/", name: "JavaScript30", resource_type: :tutorial, format: :video, difficulty: :intermediate, cost: 0, user_id: 3, author: "Wes Bos")
 
-# Review.create(title: "Review of Waffle Tutorial", body: "This tutorial was golden and delicious", rating: 4, user_id: 1, resource_id: 3)
-# Review.create(title: "Waffle Tutorial Review", body: "I am not a fan of waffles", rating: 1, user_id: 2, resource_id: 3)
-# Review.create(title: "Review of French Toast Tutorial", body: "This tutorial had too much egg", rating: 4, user_id: 2, resource_id: 7)
-# Review.create(title: "French Toast", body: "This tutorial had just enough egg", rating: 4, user_id: 1, resource_id: 7)
-# Review.create(title: "Review of French Toast Tutorial", body: "This tutorial was tasty and satisfying", rating: 4, user_id: 2, resource_id: 7)
+Review.create(
+  title: "Scrimba is great!",
+  body: "This tutorial was a great introduction to React. I thought Bob's explanations were very thorough and easy to understand. Scrimba offers a great interactive way to view and write code.",
+  rating: 4,
+  user_id: 1,
+  resource_id: 1,
+)
+Review.create(
+  title: "Review of Mosh Node/Express Tutorial",
+  body: "Mosh does a great job of explaining the basics of Node. He has a full series of Node videos so I would check those out as well. Overall I enoyed this tutorial and feel like it is a great intro to Node with Express.",
+  rating: 3,
+  user_id: 1,
+  resource_id: 2,
+)
+Review.create(
+  title: "Simple and straight to the point",
+  body: "I thought this was a great 'How to' tutorial. Not too much explanation about the how and why things happen but great for getting a RESTful API up and running with Node and PostgreSQL.",
+  rating: 4,
+  user_id: 1,
+  resource_id: 3,
+)
+Review.create(
+  title: "Straight forward SQL Introduction",
+  body: "Works as intended and will give you a quick jumpstart into writting SQL queries.",
+  rating: 3,
+  user_id: 1,
+  resource_id: 4,
+)
+Review.create(
+  title: "Little fast and loose for me",
+  body: "I am a bit of a noob when it comes to JS. This tutorial may be good for some but I felt it moved a little too fast for me. There were also some JS concepts that I wasn't familiar with and felt I should know before tacking this tutorial.",
+  rating: 2,
+  user_id: 1,
+  resource_id: 5,
+)
+Review.create(
+  title: "Great variety",
+  body: "I have only worked on a few of the tutorials in this series but find them very easy to understand and follow. Not sure how I will use these in my everyday JS coding but looking forward to it. Wes does a great job of explaining the concepts for beginners.",
+  rating: 4,
+  user_id: 1,
+  resource_id: 6,
+)
 
-# User.create(first_name: "Mike", last_name: "McFaddin", email: "mikemcfaddin@gmail.com", user_name: "Magic Mike", password: "password", password_confirmation: "password")
-# User.create(first_name: "Sara", last_name: "Lawrence", email: "slawrence@gmail.com", user_name: "Sarabee", password: "password", password_confirmation: "password")
-# User.create(first_name: "Derek", last_name: "Derrickson", email: "derekd@gmail.com", user_name: "Derek!!!", password: "password", password_confirmation: "password")
-# User.create(first_name: "Gayle", last_name: "Cooper", email: "GCoop@gmail.com", user_name: "cgeye", password: "password", password_confirmation: "password")
-# User.create(first_name: "Robert", last_name: "Richardson", email: "rrichards@gmail.com", user_name: "Robbie Boy", password: "password", password_confirmation: "password")
+Tag.create(name: "Ruby")
+Tag.create(name: "JavaScript")
+Tag.create(name: "Ruby on Rails")
+Tag.create(name: "React")
+Tag.create(name: "Vue")
+Tag.create(name: "PostgreSQL")
+Tag.create(name: "Java")
+Tag.create(name: "JS")
+Tag.create(name: "Python")
+Tag.create(name: "Angular")
+Tag.create(name: "Node")
+Tag.create(name: "Express")
+Tag.create(name: "C+")
+Tag.create(name: "C++")
+Tag.create(name: "C#")
+Tag.create(name: "Lisp")
+Tag.create(name: "Rust")
+Tag.create(name: "SQL")
+Tag.create(name: ".NET")
+Tag.create(name: "Elixir")
+Tag.create(name: "PHP")
+Tag.create(name: "HTML")
+Tag.create(name: "Bootstrap")
+Tag.create(name: "CSS")
+Tag.create(name: "Algorithms")
 
-# Resource.create(url:"waffle.com", name:"Waffle Tutorials", resource_type: :tutorial, format: :text, difficulty: :advanced, cost: 2, user_id: 1)
-# Resource.create(url:"cinnabon.com", name:"Cinnabon Tutorials", resource_type: :tutorial, format: :video, difficulty: :basic, cost: 3, user_id: 1)
-# Resource.create(url:"monkey_bread.com", name:"Monkey Bread Tutorials", resource_type: :tutorial, format: :video, difficulty: :advanced, cost: 1, user_id: 1)
-# Resource.create(url:"scone_and_jam.com", name:"Scone and Jam Tutorials", resource_type: :tutorial, format: :video, difficulty: :basic, cost: 4, user_id: 1)
-# Resource.create(url:"french_toast.com", name:"French Tutorials", resource_type: :tutorial, format: :text, difficulty: :advanced, cost: 2, user_id: 1)
-
-# Review.create(title: "Review of Waffle Tutorial", body: "This tutorial was golden and delicious", rating: 4, user_id: 1, resource_id: 3)
-# Review.create(title: "Waffle Tutorial Review", body: "I am not a fan of waffles", rating: 1, user_id: 2, resource_id: 3)
-# Review.create(title: "Review of French Toast Tutorial", body: "This tutorial had too much egg", rating: 4, user_id: 2, resource_id: 7)
-# Review.create(title: "French Toast", body: "This tutorial had just enough egg", rating: 4, user_id: 1, resource_id: 7)
-# Review.create(title: "Review of French Toast Tutorial", body: "This tutorial was tasty and satisfying", rating: 4, user_id: 2, resource_id: 7)
-
-# Tag.create(name: "Ruby")
-# Tag.create(name: "JavaScript")
-# Tag.create(name: "Ruby on Rails")
-# Tag.create(name: "React")
-# Tag.create(name: "Vue")
-# Tag.create(name: "Java")
-# Tag.create(name: "JS")
-# Tag.create(name: "Python")
-# Tag.create(name: "Angular")
-# Tag.create(name: "Node")
-# Tag.create(name: "C+")
-# Tag.create(name: "C++")
-# Tag.create(name: "C#")
-# Tag.create(name: "Lisp")
-# Tag.create(name: "Rust")
-# Tag.create(name: "SQL")
-# Tag.create(name: ".NET")
-# Tag.create(name: "Elixir")
-# Tag.create(name: "PHP")
-# Tag.create(name: "HTML")
-# Tag.create(name: "Bootstrap")
-# Tag.create(name: "CSS")
-# Tag.create(name: "Algorithms")
-
-# Tagging.create(tag_id: 1, resource_id: 5)
-# Tagging.create(tag_id: 2, resource_id: 5)
-# Tagging.create(tag_id: 3, resource_id: 2)
-# Tagging.create(tag_id: 4, resource_id: 2)
+Tagging.create(tag_id: 2, resource_id: 1)
+Tagging.create(tag_id: 4, resource_id: 1)
+Tagging.create(tag_id: 10, resource_id: 2)
+Tagging.create(tag_id: 11, resource_id: 2)
+Tagging.create(tag_id: 6, resource_id: 3)
+Tagging.create(tag_id: 11, resource_id: 3)
+Tagging.create(tag_id: 18, resource_id: 4)
+Tagging.create(tag_id: 14, resource_id: 5)
+Tagging.create(tag_id: 2, resource_id: 6)
+Tagging.create(tag_id: 22, resource_id: 6)
 
 # Resource.create(url: "javascript.com", name: "javascript tutorials togo", resource_type: :tutorial, format: :text, difficulty: :beginner, cost: 4, user_id: 7, tag_ids: [2, 4, 7])
 # Resource.create(url: "rubytutorials.com", name: "Really cool Ruby tutorials", resource_type: "tutorial", format: "video", difficulty: "intermediate", cost: 4, user_id: 7, tag_ids: [1, 3])
