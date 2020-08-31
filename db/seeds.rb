@@ -6,18 +6,86 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(first_name: "Mike", last_name: "McFaddin", email: "mikemcfaddin@gmail.com", user_name: "Magic Mike", password: "password", password_confirmation: "password")
+User.create(first_name: "Michael", last_name: "McFaddin", email: "michaelmcfaddin@gmail.com", user_name: "Magic Mike", password: "password", password_confirmation: "password")
 User.create(first_name: "Jess", last_name: "White", email: "jesswhite@gmail.com", user_name: "jesswhite", password: "password", password_confirmation: "password")
 User.create(first_name: "Derek", last_name: "Derrickson", email: "derekd@gmail.com", user_name: "Derek!!!", password: "password", password_confirmation: "password")
 User.create(first_name: "Gayle", last_name: "Cooper", email: "GCoop@gmail.com", user_name: "cgeye", password: "password", password_confirmation: "password")
 User.create(first_name: "Robert", last_name: "Richardson", email: "rrichards@gmail.com", user_name: "Robbie Boy", password: "password", password_confirmation: "password")
 
-Resource.create(url: "https://scrimba.com/course/glearnreact", name: "Learn React for free", resource_type: :tutorial, format: :video, difficulty: :intermediate, cost: 0, user_id: 1, author: "Bob Ziroll")
-Resource.create(url: "https://www.youtube.com/watch?v=pKd0Rpw7O48", name: "How to build a REST API with Node js & Express", resource_type: :channel, format: :video, difficulty: :intermediate, cost: 0, user_id: 2, author: "Mosh Hamedani")
-Resource.create(url: "https://blog.logrocket.com/setting-up-a-restful-api-with-node-js-and-postgresql-d96d6fc892d8/", name: "Setting up a RESTful API with Node.js and PostgreSQL", resource_type: :tutorial, format: :text, difficulty: :intermediate, cost: 0, user_id: 3, author: "Tani Rascia")
-Resource.create(url: "https://sqlbolt.com/", name: "Introduction to SQL", resource_type: :tutorial, format: :text, difficulty: :beginner, cost: 0, user_id: 1, author: "SQLBolt")
-Resource.create(url: "https://egghead.io/courses/start-learning-react", name: "Start Learning React", resource_type: :tutorial, format: :video, difficulty: :intermediate, cost: 0, user_id: 2, author: "Joe Maddalone")
-Resource.create(url: "https://javascript30.com/", name: "JavaScript30", resource_type: :tutorial, format: :video, difficulty: :intermediate, cost: 0, user_id: 3, author: "Wes Bos")
+Resource.create(
+  url: "https://scrimba.com/course/glearnreact",
+  name: "Learn React for free",
+  resource_type: :tutorial,
+  format: :video,
+  difficulty: :intermediate,
+  cost: 0,
+  user_id: 1,
+  author: "Bob Ziroll",
+  description: "This tutorial course is the perfect starting point for aspiring React developers. 
+  You'll learn all the key concepts while building two apps and doing interactive coding challenges along the way.",
+)
+Resource.create(
+  url: "https://www.youtube.com/watch?v=pKd0Rpw7O48",
+  name: "How to build a REST API with Node js & Express",
+  resource_type: :channel,
+  format: :video,
+  difficulty: :intermediate,
+  cost: 0,
+  user_id: 2,
+  author: "Mosh Hamedani",
+  description: "This tutorial is one part of a much larger tutorial covering Node. The basics of RESTful APIs with and introduction to using Express.js with Node.js are covered. 
+  The video also goes over handling HTTP GET, POST, PUT and DELETE requests with Express.",
+)
+Resource.create(
+  url: "https://blog.logrocket.com/setting-up-a-restful-api-with-node-js-and-postgresql-d96d6fc892d8/",
+  name: "Setting up a RESTful API with Node.js and PostgreSQL",
+  resource_type: :tutorial,
+  format: :text,
+  difficulty: :intermediate,
+  cost: 0,
+  user_id: 3,
+  author: "Tani Rascia",
+  description: "In this tutorial, you’ll learn how to create your own RESTful API in a Node.js environment running on an Express server and utilizing a PostgreSQL database. 
+  Prerequisites: familiarity with JavaScript syntax and fundamentals, basic knowledge of 
+  working with the command line, you should have Node.js and npm installed.",
+)
+Resource.create(
+  url: "https://sqlbolt.com/",
+  name: "Introduction to SQL",
+  resource_type: :tutorial,
+  format: :text,
+  difficulty: :beginner,
+  cost: 0,
+  user_id: 1,
+  author: "SQLBolt",
+  description: "This SQLBolt introduction is a series of interactive lessons and exercises designed to help you quickly learn SQL right in your browser.",
+)
+Resource.create(
+  url: "https://egghead.io/courses/start-learning-react",
+  name: "Start Learning React",
+  resource_type: :tutorial,
+  format: :video,
+  difficulty: :intermediate,
+  cost: 0,
+  user_id: 2,
+  author: "Joe Maddalone",
+  description: "This series will explore the basic fundamentals of React to get you started. 
+  Note: This is recorded with an older version of React and many things have changed. The core concepts are still accurate, but there are some technical 
+  differences you’ll need to work through.",
+)
+Resource.create(
+  url: "https://javascript30.com/",
+  name: "JavaScript30",
+  resource_type: :tutorial,
+  format: :video,
+  difficulty: :intermediate,
+  cost: 0,
+  user_id: 3,
+  author: "Wes Bos",
+  description: "Beginner to Intermediate developers and designers who want to become comfortable with both JavaScript fundamentals and working in the DOM without a library. 
+  You should already know some JavaScript to start - This isn't a JavaScript 101 course. We learn by application - encountering many new situations while talking about the hows, 
+  the whys and the whats that we use to solve them.",
+)
 
 Review.create(
   title: "Scrimba is great!",
