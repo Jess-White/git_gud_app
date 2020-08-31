@@ -41,6 +41,7 @@ class Api::ResourcesController < ApplicationController
     @resource.difficulty = params[:difficulty] || @resource.difficulty
     @resource.cost = params[:cost] || @resource.cost
     @resource.author = params[:author] || @resource.author
+    @resource.description = params[:description] || @resource.description
     if @resource.save
       render "show.json.jb"
     else
@@ -59,6 +60,6 @@ class Api::ResourcesController < ApplicationController
   def resource_params
     # Original from tutorial
     # params.require(:resource).permit(:url, :name, :resource_type, :format, :difficulty, :cost, :user_id, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
-    params.permit(:url, :name, :resource_type, :format, :difficulty, :cost, :user_id, :author, :tag_list)
+    params.permit(:url, :name, :resource_type, :format, :difficulty, :cost, :user_id, :author, :description, :tag_list)
   end
 end

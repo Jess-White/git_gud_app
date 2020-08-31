@@ -16,7 +16,7 @@ class Api::ReviewsController < ApplicationController
       resource_id: params[:resource_id],
     )
     if @review.save
-      render json: { message: "Review created successfully!" }, status: :created
+      render "show.json.jb"
     else
       render json: { errors: @review.errors.full_messages }, status: :bad_request
     end
