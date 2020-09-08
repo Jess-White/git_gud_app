@@ -45,9 +45,7 @@ Resource.create(
   cost: 0,
   user_id: 3,
   author: "Tani Rascia",
-  description: "In this tutorial, you’ll learn how to create your own RESTful API in a Node.js environment running on an Express server and utilizing a PostgreSQL database. 
-  Prerequisites: familiarity with JavaScript syntax and fundamentals, basic knowledge of 
-  working with the command line, you should have Node.js and npm installed."
+  description: "In this tutorial, you'll learn how to create your own RESTful API in a Node.js environment running on an Express server and utilizing a PostgresSQL database."
 )
 Resource.create(
   url: "https://sqlbolt.com/",
@@ -69,9 +67,7 @@ Resource.create(
   cost: 0,
   user_id: 2,
   author: "Joe Maddalone",
-  description: "This series will explore the basic fundamentals of React to get you started. 
-  Note: This is recorded with an older version of React and many things have changed. The core concepts are still accurate, but there are some technical 
-  differences you’ll need to work through."
+  description: "This series will explore the basic fundamentals of React to get you started."
 )
 Resource.create(
   url: "https://javascript30.com/",
