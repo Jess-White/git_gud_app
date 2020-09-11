@@ -22,7 +22,7 @@ Resource.create(
   user_id: 1,
   author: "Bob Ziroll",
   description: "This tutorial course is the perfect starting point for aspiring React developers. 
-  You'll learn all the key concepts while building two apps and doing interactive coding challenges along the way.",
+  You'll learn all the key concepts while building two apps and doing interactive coding challenges along the way."
 )
 Resource.create(
   url: "https://www.youtube.com/watch?v=pKd0Rpw7O48",
@@ -34,7 +34,7 @@ Resource.create(
   user_id: 2,
   author: "Mosh Hamedani",
   description: "This tutorial is one part of a much larger tutorial covering Node. The basics of RESTful APIs with and introduction to using Express.js with Node.js are covered. 
-  The video also goes over handling HTTP GET, POST, PUT and DELETE requests with Express.",
+  The video also goes over handling HTTP GET, POST, PUT and DELETE requests with Express."
 )
 Resource.create(
   url: "https://blog.logrocket.com/setting-up-a-restful-api-with-node-js-and-postgresql-d96d6fc892d8/",
@@ -45,9 +45,7 @@ Resource.create(
   cost: 0,
   user_id: 3,
   author: "Tani Rascia",
-  description: "In this tutorial, you’ll learn how to create your own RESTful API in a Node.js environment running on an Express server and utilizing a PostgreSQL database. 
-  Prerequisites: familiarity with JavaScript syntax and fundamentals, basic knowledge of 
-  working with the command line, you should have Node.js and npm installed.",
+  description: "In this tutorial, you'll learn how to create your own RESTful API in a Node.js environment running on an Express server and utilizing a PostgresSQL database."
 )
 Resource.create(
   url: "https://sqlbolt.com/",
@@ -58,7 +56,7 @@ Resource.create(
   cost: 0,
   user_id: 1,
   author: "SQLBolt",
-  description: "This SQLBolt introduction is a series of interactive lessons and exercises designed to help you quickly learn SQL right in your browser.",
+  description: "This SQLBolt introduction is a series of interactive lessons and exercises designed to help you quickly learn SQL right in your browser."
 )
 Resource.create(
   url: "https://egghead.io/courses/start-learning-react",
@@ -69,9 +67,7 @@ Resource.create(
   cost: 0,
   user_id: 2,
   author: "Joe Maddalone",
-  description: "This series will explore the basic fundamentals of React to get you started. 
-  Note: This is recorded with an older version of React and many things have changed. The core concepts are still accurate, but there are some technical 
-  differences you’ll need to work through.",
+  description: "This series will explore the basic fundamentals of React to get you started."
 )
 Resource.create(
   url: "https://javascript30.com/",
@@ -84,7 +80,7 @@ Resource.create(
   author: "Wes Bos",
   description: "Beginner to Intermediate developers and designers who want to become comfortable with both JavaScript fundamentals and working in the DOM without a library. 
   You should already know some JavaScript to start - This isn't a JavaScript 101 course. We learn by application - encountering many new situations while talking about the hows, 
-  the whys and the whats that we use to solve them.",
+  the whys and the whats that we use to solve them."
 )
 
 Review.create(
@@ -92,42 +88,42 @@ Review.create(
   body: "This tutorial was a great introduction to React. I thought Bob's explanations were very thorough and easy to understand. Scrimba offers a great interactive way to view and write code.",
   rating: 4,
   user_id: 1,
-  resource_id: 1,
+  resource_id: 1
 )
 Review.create(
   title: "Review of Mosh Node/Express Tutorial",
   body: "Mosh does a great job of explaining the basics of Node. He has a full series of Node videos so I would check those out as well. Overall I enoyed this tutorial and feel like it is a great intro to Node with Express.",
   rating: 3,
   user_id: 1,
-  resource_id: 2,
+  resource_id: 2
 )
 Review.create(
   title: "Simple and straight to the point",
   body: "I thought this was a great 'How to' tutorial. Not too much explanation about the how and why things happen but great for getting a RESTful API up and running with Node and PostgreSQL.",
   rating: 4,
   user_id: 1,
-  resource_id: 3,
+  resource_id: 3
 )
 Review.create(
   title: "Straight forward SQL Introduction",
   body: "Works as intended and will give you a quick jumpstart into writting SQL queries.",
   rating: 3,
   user_id: 1,
-  resource_id: 4,
+  resource_id: 4
 )
 Review.create(
   title: "Little fast and loose for me",
   body: "I am a bit of a noob when it comes to JS. This tutorial may be good for some but I felt it moved a little too fast for me. There were also some JS concepts that I wasn't familiar with and felt I should know before tacking this tutorial.",
   rating: 2,
   user_id: 1,
-  resource_id: 5,
+  resource_id: 5
 )
 Review.create(
   title: "Great variety",
   body: "I have only worked on a few of the tutorials in this series but find them very easy to understand and follow. Not sure how I will use these in my everyday JS coding but looking forward to it. Wes does a great job of explaining the concepts for beginners.",
   rating: 4,
   user_id: 1,
-  resource_id: 6,
+  resource_id: 6
 )
 
 Tag.create(name: "Ruby")
