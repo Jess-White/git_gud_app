@@ -39,6 +39,6 @@ Rails.application.routes.draw do
     # from tutorial
     # resources :resources
     # root 'resources#index'
-
   end
+  get "*path", to: "application#fallback_index_html"
 end

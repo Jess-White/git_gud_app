@@ -19,6 +19,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def fallback_index_html
+    render :file => "public/index.html"
+  end
+
   helper_method :current_user
 
   def authenticate_user
